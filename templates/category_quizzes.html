@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{slug.0.category}}</h1>
+{% for i in slug %}    
+{% with id=i.user_id %}     
+
+
+
+      <div style="margin: 10px;text-align: center; padding: 10px; background-color: aliceblue;">
+            <h3>{{i.title}}</h3>
+            <p>shared by
+                  {% for key,val in owners.items %}
+                  {% if i.user_id|add:"0" == key|add:"0" %}
+                  <b style="font-size: 17px;"><i>{{val.0.username}}</i></b>
+                  {% else %} <i>anonymous</i>
+                  {% endif %}
+                  {% endfor %}</p> 
+            <p>category: {{i.category}}</p>
+            <a href="{% url 'startquiz' i.id %}">Start Quiz!</a>
+            </div>
+
+{% endwith %}   
+ {% endfor %}        
+{% endblock content %}
+    

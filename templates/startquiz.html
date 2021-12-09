@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Good Luck!</h1>
+<form action="{% url 'submit' %}" method='POST'>{% csrf_token %}
+{% for key,val in book.items %}
+    <div>
+        <h3>{{key}}</h3>
+        {% for i in val %}
+        <input type="checkbox" id="{{i.text}}" name="{{i.text}}" value="{{i.is_right}}{{key}}">
+<label for="{{i.text}}">{{i.text}}</label><br>
+        {% endfor %}
+    </div> 
+    {% endfor %}
+   <br><br> <input type="submit" value="Submit">
+</form>
+
+{% endblock content %}

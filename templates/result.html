@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Results !</h1>
+<h3>You Have {{trues}} True and {{falses}} False answer.</h3>
+<h4>Your wrong answers are..</h4>
+
+{% for i,y in query.items %}
+    <h5>Question: {{i}}</h5>
+    <h5>Your Answer: {{y}}</h5>
+{% endfor %}
+    
+    
+{% endblock content %}
+    

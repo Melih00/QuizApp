@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Categories</h1>
+    <ul>
+      
+    </ul>
+    <ul>
+
+        {% for i in slug %}
+        <li>
+            <a href="{% url 'categories' %}{{i.link}}">{{i}}</a>
+        </li>
+        {% endfor %}
+        
+    </ul>
+{% endblock content %}
+    
